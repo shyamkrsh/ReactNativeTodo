@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, View, StyleSheet, TextInput, TouchableOpacity,ScrollView, Image } from "react-native";
+import { Text, View, StyleSheet, TextInput, TouchableOpacity, ScrollView, Image } from "react-native";
 import axios from 'axios'
 import TaskCard from '../components/TaskCard.jsx'
 
@@ -11,7 +11,6 @@ export default function Index() {
   useEffect(() => {
     axios.get(`https://api.freeapi.app/api/v1/todos`).then((res) => {
       setTasks(res?.data?.data);
-      console.log(res?.data?.data)
     }).catch((err) => {
       console.log(err);
     })
@@ -40,11 +39,11 @@ export default function Index() {
       <ScrollView>
         {
           tasks?.length == 0 ? <View>
-            <Image source={{uri: 'https://i.ibb.co/nMWRh0V8/empty.png'}} style={{
+            <Image source={{ uri: 'https://i.ibb.co/nMWRh0V8/empty.png' }} style={{
               width: '100%',
               height: 150,
               marginTop: 30
-            }}/>
+            }} />
             <Text style={styles.emptyContent}>
               No Such Task available
             </Text>
