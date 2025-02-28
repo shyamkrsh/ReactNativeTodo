@@ -10,7 +10,7 @@ const TaskCard = ({ task_id, isComplete, title, description }) => {
 
     const [deleteBoxVisible, setdeleteBoxVisible] = useState(false);
     const [editBoxVisible, seteditBoxVisible] = useState(false);
-    const [formData, setFormData] = useState({ title, description});
+    const [formData, setFormData] = useState({ title, description });
 
     let handleTaskDone = (id) => {
         console.log(id)
@@ -50,7 +50,6 @@ const TaskCard = ({ task_id, isComplete, title, description }) => {
                 <TouchableOpacity onPress={() => seteditBoxVisible(true)}>
                     <Feather name="edit" size={30} color="black" style={styles.editIcon} />
                 </TouchableOpacity>
-
                 <ReactNativeModal
                     isVisible={editBoxVisible}
                     onBackdropPress={() => seteditBoxVisible(false)}
@@ -60,8 +59,8 @@ const TaskCard = ({ task_id, isComplete, title, description }) => {
                         <Text style={styles.alertText}>Editing your task!</Text>
 
                         <View style={styles.editInputBox}>
-                            <TextInput placeholder='Edit task title' value={formData?.title}  style={styles.editInput} onChangeText={value => setFormData(prev => ({ ...prev, title: value }))} />
-                            <TextInput placeholder='Edit task description' value={formData?.description}  style={styles.editInput} onChangeText={value => setFormData(prev => ({ ...prev, description: value }))} />
+                            <TextInput placeholder='Edit task title' value={formData?.title} style={styles.editInput} onChangeText={value => setFormData(prev => ({ ...prev, title: value }))} />
+                            <TextInput placeholder='Edit task description' value={formData?.description} style={styles.editInput} onChangeText={value => setFormData(prev => ({ ...prev, description: value }))} />
                         </View>
 
                         <View style={styles.alertActionContainer}>

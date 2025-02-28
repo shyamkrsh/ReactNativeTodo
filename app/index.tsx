@@ -6,7 +6,6 @@ import TaskCard from '../components/TaskCard.jsx'
 export default function Index() {
 
   const [formData, setFormData] = useState({ title: '', description: '' })
-
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
