@@ -112,7 +112,8 @@ let styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 15,
         boxShadow: '1px 1px 5px gray',
-        marginTop: 5
+        marginTop: 5,
+        marginHorizontal: 5
     },
     checkBoxContainer: {
     },
