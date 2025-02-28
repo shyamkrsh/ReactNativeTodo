@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, View, StyleSheet, TextInput, TouchableOpacity, FlatList, ScrollView, Image } from "react-native";
+import { Text, View, StyleSheet, TextInput, TouchableOpacity,ScrollView, Image } from "react-native";
 import axios from 'axios'
 import TaskCard from '../components/TaskCard.jsx'
 
@@ -49,7 +49,7 @@ export default function Index() {
               No Such Task available
             </Text>
           </View>
-            : ""
+            : null
         }
         {tasks?.map((task) => (
           <TaskCard key={task?._id} task_id={task?._id} isComplete={task?.isComplete} title={task?.title} description={task?.description} />
@@ -77,7 +77,7 @@ let styles = StyleSheet.create({
   input: {
     height: 50,
     width: '80%',
-    padding: 20,
+    padding: 5,
     borderWidth: 1,
     borderColor: 'black',
     borderRadius: 10

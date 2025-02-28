@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity, Button, Pressable, TextInput } from 'react-native'
 import React, { useState } from 'react'
-import { CheckBox } from 'react-native-web'
+import Checkbox from 'expo-checkbox'
 import Feather from '@expo/vector-icons/Feather';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import axios from 'axios'
@@ -40,15 +40,19 @@ const TaskCard = ({ task_id, isComplete, title, description }) => {
         <View style={styles.cardContainer}>
 
             <View style={styles.checkBoxContainer}>
-                <CheckBox value={isComplete} style={styles.checkBox} onValueChange={() => handleTaskDone(task_id)} />
+                <Checkbox
+                    value={isComplete}
+                    onValueChange={() => handleTaskDone(task_id)}
+                    style={styles.checkBox}
+                />
             </View>
             <View style={styles.taskContentContainer}>
                 <Text style={styles.taskTitle}>{title}</Text>
                 <Text style={styles.taskDescription}>{description}</Text>
             </View>
             <View style={styles.actionContainer}>
-                <TouchableOpacity onPress={() => seteditBoxVisible(true)}>
-                    <Feather name="edit" size={30} color="black" style={styles.editIcon} />
+                <TouchableOpacity onPress={() => seteditBoxVisible(true)} style={styles.editButton}>
+                    <Feather name="edit" size={30} color="black" style={styles.icon} />
                 </TouchableOpacity>
                 <ReactNativeModal
                     isVisible={editBoxVisible}
@@ -65,17 +69,17 @@ const TaskCard = ({ task_id, isComplete, title, description }) => {
 
                         <View style={styles.alertActionContainer}>
                             <TouchableOpacity onPress={() => seteditBoxVisible(false)} style={styles.alertActionButton} >
-                                Cancel
+                                <Text>Cancel</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => handleUpdate(task_id)} style={styles.alertActionButton} >
-                                OK
+                                <Text>OK</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
                 </ReactNativeModal>
 
-                <TouchableOpacity onPress={() => setdeleteBoxVisible(true)}>
-                    <MaterialIcons name="delete-outline" size={30} color="black" style={styles.deleteIcon} />
+                <TouchableOpacity onPress={() => setdeleteBoxVisible(true)} style={styles.deleteButton}>
+                    <MaterialIcons name="delete-outline" size={30} color="black" style={styles.icon} />
                 </TouchableOpacity>
                 <ReactNativeModal
                     isVisible={deleteBoxVisible}
@@ -87,21 +91,19 @@ const TaskCard = ({ task_id, isComplete, title, description }) => {
                         <Text style={styles.alertDescription}>Are you sure to delete ?</Text>
                         <View style={styles.alertActionContainer}>
                             <TouchableOpacity onPress={() => setdeleteBoxVisible(false)} style={styles.alertActionButton} >
-                                Cancel
+                                <Text>Cancel</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => handleTaskDelete(task_id)} style={styles.alertActionButton} >
-                                OK
+                                <Text>OK</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
                 </ReactNativeModal>
-
             </View>
         </View>
     )
 }
 
-export default TaskCard
 
 let styles = StyleSheet.create({
     cardContainer: {
@@ -132,29 +134,32 @@ let styles = StyleSheet.create({
     },
     taskDescription: {},
     actionContainer: {
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: 5,
+        gap: 8,
     },
-    editIcon: {
-        display: 'flex',
+    editButton: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'blue',
         width: 40,
         height: 40,
-        color: 'white',
+        backgroundColor: 'blue',
         borderRadius: 5
     },
-    deleteIcon: {
-        display: 'flex',
+    deleteButton: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'red',
         width: 40,
         height: 40,
+        backgroundColor: 'red',
+        borderRadius: 5
+    },
+    icon: {
+        color: 'white',
+    },
+    deleteIcon: {
+        backgroundColor: 'red',
         color: 'white',
         borderRadius: 5
     },
@@ -202,3 +207,5 @@ let styles = StyleSheet.create({
         borderRadius: 5
     }
 })
+
+export default TaskCard
