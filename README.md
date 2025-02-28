@@ -1,50 +1,102 @@
-# Welcome to your Expo app 👋
+# To-Do App (React Native + Expo)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple and intuitive To-Do application built using **React Native** and **Expo**, with backend integration via an API.
 
-## Get started
+## Features
 
-1. Install dependencies
+- Add, update, and delete tasks
+- Mark tasks as completed
+- Fetch tasks from an API
+- Responsive and mobile-friendly UI
+- Persistent data with API integration
+
+## Tech Stack
+
+- **Frontend:** React Native, Expo
+- **State Management:** useState, useEffect (React Hooks)
+- **Networking:** Axios / Fetch API
+- **Backend:** Node.js / Express (or any API service)
+
+## Installation & Setup
+
+### Prerequisites
+
+- Install [Node.js](https://nodejs.org/)
+- Install [Expo CLI](https://docs.expo.dev/get-started/installation/)
+- Have an API ready for handling to-do tasks
+
+### Steps to Run Locally
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/todo-app-react-native.git
+   cd todo-app-react-native
+   ```
+
+2. Install dependencies:
 
    ```bash
    npm install
+   # or
+   yarn install
    ```
 
-2. Start the app
+3. Configure API Endpoint
+
+   - Create a `.env` file in the root folder
+   - Add the API base URL:
+     ```env
+     API_URL=https://your-api-url.com
+     ```
+
+4. Start the Expo development server:
 
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+5. Scan the QR code using the Expo Go app (Android/iOS) or run it in an emulator.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## API Endpoints
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Ensure your backend API supports the following endpoints:
 
-## Get a fresh project
+| Method | Endpoint    | Description       |
+| ------ | ----------- | ----------------- |
+| GET    | /todos      | Get all tasks     |
+| POST   | /todos      | Create a new task |
+| PUT    | /todos/\:id | Update a task     |
+| DELETE | /todos/\:id | Delete a task     |
 
-When you're ready, run:
+## Project Structure
 
-```bash
-npm run reset-project
+```
+📂 todo-app-react-native
+ ┣ 📂 src
+ ┃ ┣ 📂 components
+ ┃ ┣ 📂 screens
+ ┃ ┣ 📂 services (API calls)
+ ┃ ┣ 📜 App.js
+ ┣ 📜 package.json
+ ┣ 📜 .env
+ ┣ 📜 README.md
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Screenshots
 
-## Learn more
+(Add relevant screenshots here)
 
-To learn more about developing your project with Expo, look at the following resources:
+## Contributing
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Contributions are welcome! Fork the repo, make changes, and submit a pull request.
 
-## Join the community
+## License
 
-Join our community of developers creating universal apps.
+This project is open-source and available under the [MIT License](LICENSE).
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+**Happy Coding! 🚀**
+
+n
