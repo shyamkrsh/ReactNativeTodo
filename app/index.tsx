@@ -15,7 +15,7 @@ export default function Index() {
     }).catch((err) => {
       console.log(err);
     })
-  }, [])
+  }, [tasks])
 
 
   let handleSubmit = () => {
